@@ -1,0 +1,65 @@
+{% extends 'res.html'%} {% block title%}
+<title>Job Finder</title>
+{%endblock title%} {% block body%}
+<div class="container">
+    <h1 class='text-center'>Job Finder</h1>
+    <h2 class="text-center">Vacancie in your company</h2>
+    <style>
+        h1 {
+            color: yellow;
+        }
+        
+        h2 {
+            color: cyan;
+        }
+        
+        label {
+            color: cyan;
+        }
+    </style>
+    <form action="/vacancie" method="POST">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Email</label>
+                <input type="email" class="form-control" id="inputEmail4" name="email">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Password</label>
+                <input type="password" class="form-control" id="inputPassword4" name="password">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputCompany">Name of the Company</label>
+                <input type="text" class="form-control" id="inputCompany" name="company">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="inputLocation">City</label>
+                <input type="text" class="form-control" id="inputLocation" name="location">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputJob" title="Enter the type of job you want to hire. Eg.Software Engineer, Accountant">Job</label>
+                <input type="text" class="form-control" id="inputJob_type" name="job_type">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputSalary" title="Enter the average salary you want for your employee.  ">Salary In INR</label>
+                <input type="number" class="form-control" id="inputSalary" name="salary">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputPost" title="Enter the post you are looking to hire your employee. Eg. Manager">Post</label>
+                <input type="text" class="form-control" id="inputPost" name="post">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputDescription">Describe</label>
+                <br>
+                <textarea name="describe" placeholder="Here describe the type of job you want to hire. The technologies that you want as requirements." rows="10" cols="50"></textarea>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+    <br><br><br><br><br><br><br><br><br><br><br><br> {%endblock body%}

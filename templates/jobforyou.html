@@ -1,0 +1,50 @@
+{%extends 'res.html'%} {%block title%}
+<title>Job(s) for you</title>{%endblock title%} {%block body%}
+<h1 class="text-center">Job Finder</h1>
+<h2 class="text-center">Job(s) for You</h2>
+<div class="container">
+    <style>
+        h1 {
+            color: yellow
+        }
+        
+        h2,
+        label {
+            color: cyan;
+        }
+        
+        a:hover {
+            color: yellow
+        }
+    </style>
+
+    <br>
+    <form action="/jobforyou" method="POST">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Email</label>
+                <input type="email" class="form-control" id="inputEmail4" name="email">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Password</label>
+                <input type="password" class="form-control" id="inputPassword4" name="password">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Check Jobs </button>
+    </form>
+    <br> {%if request.method=='POST'%} {%for jobs in data%}
+    <div class="card text-white bg-info mb-3" style="max-width: auto" align="center">
+        <div class="card-header">{{jobs.company}}</div>
+        <div class="card-body">
+            <h4 class="card-text" style="color:rgb(47, 14, 138)">Job: {{jobs.availablejob}}</h4>
+            <h4 class="card-text" style="color:rgb(47, 14, 138)">Post: {{jobs.postreqd}}</h4>
+            <h4 class="card-text" style="color:rgb(47, 14, 138)">Salary in INR: {{jobs.averagesalary}}</h4>
+            <h4 class="card-text" style="color:rgb(47, 14, 138)">Description: {{jobs.jobdescription}}</h4>
+            <a href="mailto:{{jobs.email}}">
+                <h4 class="card-text" style="color:rgb(47, 14, 138)">Email: {{jobs.email}}</h4>
+            </a>
+        </div>
+    </div>
+    <br> {%endfor%} {%endif%}
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> {%endblock body%}

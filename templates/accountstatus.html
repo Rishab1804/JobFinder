@@ -1,0 +1,42 @@
+{% extends 'res.html'%} {% block title%}
+<title>Job Finder</title>
+{%endblock title%} {% block body%}
+<div class="container">
+    <h1 class='text-center'>Job Finder</h1>
+    <h2 class='text-center'>Settings</h2>
+
+
+
+    <style>
+        h1 {
+            color: yellow;
+        }
+        
+        h2 {
+            color: cyan;
+        }
+        
+        a {
+            color: black;
+        }
+        
+        a:hover {
+            color: yellow;
+        }
+    </style>
+
+    <br>
+    <div class="container">
+        <div class="p-3 mb-2 bg-success text-black">
+            <a class="text-center" href="/activateaccount">
+                <h3>Activate Account</h3>
+            </a>
+        </div>
+        <div class="p-3 mb-2 bg-danger text-black">
+            <a class="text-center" href="/deactivateaccount">
+                <h3>Deactivate Account</h3>
+            </a>
+
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br> {%endblock body%}

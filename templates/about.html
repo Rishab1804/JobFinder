@@ -1,0 +1,55 @@
+{% extends 'res.html'%} {% block title%}
+<title>Job Finder</title>
+{%endblock title%} {% block body %}
+
+<h1 class='text-center' style="color: yellow;">Job Finder</h1>
+<h2 class="text-center" style="color:rgb(0, 217, 255)">About</h2>
+<style>
+    .typewriter h3 {
+        font-family: monospace;
+        overflow: hidden;
+        /* Ensures the content is not revealed until the animation */
+        border-right: .15em solid orange;
+        /* The typwriter cursor */
+        white-space: nowrap;
+        /* Keeps the content on a single line */
+        margin: 0 auto;
+        /* Gives that scrolling effect as the typing happens */
+        letter-spacing: .15em;
+        /* Adjust as needed */
+        animation: typing 3.5s steps(30, end), blink-caret .5s step-end infinite;
+    }
+    /* The typing effect */
+    
+    @keyframes typing {
+        from {
+            width: 0
+        }
+        to {
+            width: 100%
+        }
+    }
+    /* The typewriter cursor effect */
+    
+    @keyframes blink-caret {
+        from,
+        to {
+            border-color: transparent
+        }
+        50% {
+            border-color: orange
+        }
+    }
+</style>
+<h4 class="text-center" style="color: violet;">Developers</h4>
+<div class="typewriter">
+    <h3 style="color:rgb(22, 230, 126)">Aaditya Vyas <br> Rishabh Keshri
+    </h3>
+</div>
+<br>
+<h4 class="text-center" style="color:tomato">Description</h4>
+<h3 class="text-center" style="color:lime">This is a job getting website. Now get your dream job according to your requirements by registering yourself to our app. Due to this covid 19 many people lost their jobs and many companies need a workforce. <br> <img src="{{url_for('static', filename='unemployment.jpeg')}}"
+        class="img-fluid"> <br> Thus our app will act as a connection between the company and employ. <br><img src="{{url_for('static', filename='idea.png')}}" class="img-fluid"> <br>You can add filters to search job for your post and even your salary to
+    check if there is an opening. And land on your dreamjob. <br><img src="{{url_for('static', filename='dreamjob.jpeg')}}" class="img-fluid"> <br></h3>
+
+{%endblock body%}

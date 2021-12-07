@@ -1,0 +1,50 @@
+{% extends 'res.html'%} {% block title%}
+<title>Job Finder</title>
+{%endblock title%} {% block body%}
+<div class="container">
+    <h1 class='text-center'>Job Finder</h1>
+    <h2 class="text-center">Deactivate your account</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %}
+    <ul class=flashes>
+        {% for category, message in messages %}
+        <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+            <strong>Message:</strong> {{message}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+        </div>
+        {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+
+
+
+    <style>
+        h1 {
+            color: yellow;
+        }
+        
+        h2,
+        label {
+            color: cyan;
+        }
+    </style>
+
+
+
+    <form action="/deactivateaccount" method="POST">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4" class="ema">Email</label>
+                <input type="email" class="form-control" id="inputEmail4" name="email">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4" class="pass">Password</label>
+                <input type="password" class="form-control" id="inputPassword4" name="password">
+            </div>
+        </div>
+        <br>
+        <p align="center">
+            <button type="submit" class="btn btn-primary">Deactivate Your Account</button>
+    </form>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> {%endblock body%}

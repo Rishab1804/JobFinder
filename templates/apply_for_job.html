@@ -1,0 +1,57 @@
+{% extends 'res.html'%} {% block title%}
+<title>Job Finder</title>{%endblock title%} {% block body%}
+<div class="container">
+    <h1 class='text-center'>Job Finder</h1>
+    <h2 class="text-center">The Job You Want</h2>
+    <style>
+        h1 {
+            color: yellow;
+        }
+        
+        h2 {
+            color: cyan;
+        }
+        
+        label {
+            color: cyan;
+        }
+    </style>
+    <form action="/ApplyForJob" method="POST">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Email</label>
+                <input type="email" class="form-control" id="inputEmail4" name="email">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Password</label>
+                <input type="password" class="form-control" id="inputPassword4" name="password">
+            </div>
+            <div class="form-group col-md-12">
+                <label for="inputLocation">City</label>
+                <input type="text" class="form-control" id="inputLocation" name="location">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputJob" title="Enter the type of job you want. Eg.Software Engineer">Job</label>
+                <input type="text" class="form-control" id="inputJob_type" name="job_type">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputSalary" title="Enter the average salary you want for your job. Eg.20000 ">Required Salary In INR</label>
+                <input type="number" class="form-control" id="inputSalary" name="salary">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputPost" title="Enter the post you want to submit for your job. Eg.Manager">Post</label>
+                <input type="text" class="form-control" id="inputPost" name="post">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputDescription">Describe Yourself</label>
+                <br>
+                <textarea name="describe" placeholder="Here describe yourself and specify the work you can do. The technologies you can use" rows="10" cols="50"></textarea>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Apply</button>
+    </form>
+    <br><br><br><br><br><br><br><br><br><br><br><br> {%endblock body%}

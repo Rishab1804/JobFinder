@@ -88,7 +88,7 @@ def register():
             flash(f'Welcome to Job Finder {email}', 'success')
             return redirect('/login')
         except:
-            flash('Something went wrong', "warning")
+            flash('Error Occured', "warning")
             return redirect('/register')
     return render_template('register.html')
 
@@ -183,12 +183,8 @@ def jobforyou():
             wantedjob=dreamjob.wantedjob
             wantedpost=dreamjob.wantedpost
             location=dreamjob.location
-            try:
-                jobs = AvailableJob.query.filter_by(availablejob=wantedjob,postreqd=wantedpost,location=location)
-                return render_template("jobforyou.html", data=jobs)
-            except:
-                flash("Something Went Wrong, try again", "Warning")
-                return redirect("/")
+            jobs = AvailableJob.query.filter_by(availablejob=wantedjob,postreqd=wantedpost,location=location)
+            return render_template("jobforyou.html", data=jobs)
         else:
             flash("Invalid Password", "danger")
             return redirect("/")

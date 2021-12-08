@@ -164,8 +164,6 @@ def delete():
                 db.session.commit()
                 flash("Account Deleted.", "secondary")
                 return redirect("/")
-                flash("Error occured. Please write a valid email and password", "danger")
-                return redirect("/")
             else:
                 flash("Invalid Password", "danger")
                 return redirect("/")

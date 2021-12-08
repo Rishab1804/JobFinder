@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 #imports
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ocpzfhdqocfjqd:3429d21023568210dd5e438bb6ef43f044ad398954828e60bf74b268fb50f9ab@ec2-52-213-119-221.eu-west-1.compute.amazonaws.com:5432/d20ki9878n8i2n'
 app.config['SECRET_KEY']='qwertyuiopasdfghjklzxcvbnm'
 db = SQLAlchemy(app)
 login_manager = LoginManager()

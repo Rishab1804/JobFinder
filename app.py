@@ -158,13 +158,17 @@ def delete():
         passwordAttempt = request.form.get("password")
         user =User.query.filter_by(email=email).first()
         password = user.password
-        if passwordAttempt == password:
-            db.session.delete(user)
-            db.session.commit()
-            flash("Account Deleted.", "secondary")
-            return redirect("/")
-        else:
-            flash("Invalid Password", "danger")
+        try:
+            if passwordAttempt == password:
+                db.session.delete(user)
+                db.session.commit()
+                flash("Account Deleted.", "secondary")
+                return redirect("/")
+            else:
+                flash("Invalid Password", "danger")
+                return redirect("/")
+        except:
+            flash("Error occured. Please write a valid email and password", "danger")
             return redirect("/")
     return render_template("delete.html")
 

@@ -4,11 +4,12 @@ from flask_sqlalchemy import SQLAlchemy
 #imports
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ocpzfhdqocfjqd:3429d21023568210dd5e438bb6ef43f044ad398954828e60bf74b268fb50f9ab@ec2-52-213-119-221.eu-west-1.compute.amazonaws.com:5432/d20ki9878n8i2n'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SECRET_KEY']='qwertyuiopasdfghjklzxcvbnm'
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
+
 class JobReqd(UserMixin,db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email=db.Column(db.String(1000),nullable=False)
@@ -42,6 +43,7 @@ class User(UserMixin,db.Model):
     db.relationship('AvailableJob')
     def __repr__(self):
         return '<User %r>' % self.email + self.password
+    
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
@@ -176,6 +178,9 @@ def jobforyou():
             location=dreamjob.location
             jobs = AvailableJob.query.filter_by(availablejob=wantedjob,postreqd=wantedpost,location=location)
             return render_template("jobforyou.html", data=jobs)
+        else:
+            flash("Invalid Password", "danger")
+            return redirect("/")
     return render_template('jobforyou.html')
 
 @app.route("/deletevacancie",methods=['GET','POST'])

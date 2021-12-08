@@ -82,11 +82,14 @@ def register():
         fname = request.form.get('first_name')
         lname = request.form.get('last_name')
         user=User(email=email,password=password,fname=fname,lname=lname)
-        db.session.add(user)
-        db.session.commit()
-        flash(f'Welcome to Job Finder {email}', 'success')
-        return redirect('/login')
-
+        try:
+            db.session.add(user)
+            db.session.commit()
+            flash(f'Welcome to Job Finder {email}', 'success')
+            return redirect('/login')
+        except:
+            flash('Error Occured', "danger")
+            return redirect('/register')
     return render_template('register.html')
 
 @app.route('/logout')
@@ -198,7 +201,9 @@ def deletevacancie():
             db.session.commit()
             flash("Successfully Deleted", "success")
             return redirect("/")
-        return render_template("delete_vacancies.html")
+        else:
+            flash("Invalid Password", "warning")
+            return redirect("/")
     return render_template("delete_vacancies.html")
 
 if __name__ == "__main__":

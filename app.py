@@ -122,7 +122,7 @@ def vacancie():
             availablejob=AvailableJob(availablejob=jobavailable,postreqd=requiredpost,averagesalary=averagesalary,jobdescription=jobdescription, email=email,location=location,company=company)
             db.session.add(availablejob)
             db.session.commit()
-            flash('Vacancie Posted', 'success')
+            flash('Vacancy Posted', 'success')
             return redirect('/')
         else:
             flash("Invalid Credentials", "danger")

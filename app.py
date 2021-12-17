@@ -87,6 +87,11 @@ def register():
             db.session.commit()
             flash(f'Welcome to Job Finder {email}', 'success')
             return redirect('/login')
+            print('Register success')
+            print(email)
+            print(password)
+            print(fname)
+            print(lname)
         except:
             flash('Error Occured', "warning")
             return redirect('/register')

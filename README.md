@@ -6,4 +6,4 @@ This app is made for a ATL fest. This app helps you get job and get vacancies fo
 
 It is open-source and as well as free of cost.
 
-We have 0% profit from the app, but we want to generate employment post covid.
+We want to generate employment post covid.
